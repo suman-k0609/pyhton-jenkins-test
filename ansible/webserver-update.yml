@@ -1,0 +1,16 @@
+---
+- name: Deploy Web file to vm2
+  hosts: 192.168.56.12
+  become: yes
+
+  tasks:
+    - name: Copy files to apache web root
+      copy:
+        src: /var/lib/jenkins/workspace/webserver-update/index.html
+        dest: /var/www/html/index.html
+
+    - name: Start apache service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
