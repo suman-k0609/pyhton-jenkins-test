@@ -1,0 +1,11 @@
+- name: Test connectivity on localhost
+  hosts: 192.168.56.12
+  connection: local
+
+  tasks:
+    - name: Ping localhost
+      ping:
+
+    - name: print output
+      debug:
+        msg: "Hello World"
